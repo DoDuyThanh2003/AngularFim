@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+.content {
+    &__logged {
+        background-color: deepskyblue;
+
+        &__text {
+            width: 75%;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+    }
+
+    &__welcome {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover
+        }
+
+        &__body {
+            width: 65%;
+            position: absolute;
+            top: 20%;
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+
+            &-search {
+                input {
+                    background-color: rgb(255, 255, 255);
+                    padding: 12px 15px;
+                    border-radius: 30px;
+                }
+
+                input::placeholder {
+                    color: #8f8e8e;
+                }
+
+                input:focus {
+                    border: none;
+                }
+
+                button {
+                    // background-color: aqua;
+                    padding: 10px 30px;
+                    border-radius: 30px;
+                    position: absolute;
+                    right: 0%;
+                    top: 5%;
+                    background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                }
+            }
+        }
+    }
+
+    .content__trending {
+        .fimHot {
+            &__nav {
+                margin: 10px 0;
+
+                a {
+                    margin-right: 15px;
+                    text-decoration: none;
+                    color: #333;
+
+                    &:hover {
+                        color: #007bff;
+                    }
+                }
+            }
+            &__days {
+                display: flex;
+                gap: 20px;
+                width: 80%;
+                overflow-x: auto;
+                padding: 10px 0;
+                margin: 0 auto;
+                &-item {
+                    flex: 0 0 auto;
+                    width: 150px;
+                    .item {
+                        &-img {
+                            height: 225px;
+                            width: 150px;
+                            overflow: hidden;
+                            border-radius: 8px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                transition: transform 0.3s;
+                            }
+                        }
+                        &-info {
+                            margin-top: 8px;
+
+                            .item-title {
+                                font-weight: bold;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+
+                            .item-date {
+                                color: #666;
+                                font-size: 0.9em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<div class="content">
+    <div class="content__logged">
+        <div class="content__logged__text">
+            <p class="text-2xl text-white text-center">Logged Out!</p>
+            <p class="text-white text-center">You have been successfully logged out.</p>
+        </div>
+    </div>
+    <div class="content__welcome">
+        <img *ngIf="Movies" [src]="Movies" alt="Background">
+        <div class="content__welcome__body text-white">
+            <div>
+                <p class="text-5xl font-medium">Welcome.</p>
+                <p class="text-3xl font-normal">Millions of movies, TV shows and peopel to discover. Explore now.</p>
+            </div>
+            <div class="content__welcome__body-search relative">
+                <input class="w-full" type="text" placeholder="Search for a movies, tv show, person...">
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="content__trending">
+        <div class="content__trending fimHot">
+            <p class="text-2xl">Trending</p>
+            <div class="fimHot__nav">
+                <a href="">Today</a>
+                <a href="">This Week</a>
+            </div>
+            <div class="flex fimHot__days">
+                <div *ngFor="let fim of fims" class="fimHot__days-item">
+                    <div class="item-img">
+                        <img [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Poster Fims">
+                    </div>
+                    <div class="item-info">
+                        <p class="item-title">{{fim.title}}</p>
+                        <p class="item-date">{{fim.release_date | date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,43 +1,75 @@
-<div>
-    <div>
-        <img src="assets/logo.svg" alt="Logo" class="w-45" >
+<div class="header">
+    <div class="header__body flex">
+        <div class="flex gap-8 header__body__left">
+            <div class="header__body__left-logo">
+                <img src="assets/logo.svg" alt="Logo" class="w-40">
+            </div>
+            <div class="header__body__left menu">
+                <ul class="flex gap-2">
+                    <li class="menu_item p-4">
+                        <p>Movies</p>
+                        <div class="menu_item_movies">
+                            <a href="#">Popular</a>
+                            <a href="#">Now Playing</a>
+                            <a href="#">Upcoming</a>
+                            <a href="#">Top Rated</a>
+                        </div>
+                    </li>
+                    <li class="menu_item p-4">
+                        <p>TV Shows</p>
+                        <div class="menu_item_movies">
+                            <a href="#">Popular</a>
+                            <a href="#">Airing Today</a>
+                            <a href="#">On TV</a>
+                            <a href="#">Top Rated</a>
+                        </div>
+                    </li>
+                    <li class="menu_item p-4">
+                        <p>People</p>
+                        <div class="menu_item_movies">
+                            <a href="#">Popular People</a>
+                        </div>
+                    </li>
+                    <li class="menu_item p-4">
+                        <p>More</p>
+                        <div class="menu_item_movies">
+                            <a href="#">Discussionr</a>
+                            <a href="#">Leaderboad</a>
+                            <a href="#">API Documenttation</a>
+                            <a href="#">API for Business</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header__body__right">
+            <ul class="flex gap-2">
+                <li class="p-4">
+                    <i class="fa-solid fa-plus"></i>
+                </li>
+                <li class="p-4">
+                    <i class="fa-solid fa-language"></i>
+                </li>
+                <li class="p-4">
+                    <button>Đăng Nhập</button>
+                </li>
+                <li class="p-4">
+                    <a href="">Tham gia TMDB</a>
+                </li>
+                <li class="p-4">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div>
-        <ul>
-            <li>
-                <p>Movies</p>
-                <div>
-                    <a href="#">Popular</a>
-                    <a href="#">Now Playing</a>
-                    <a href="#">Upcoming</a>
-                    <a href="#">Top Rated</a>
-                </div>
-            </li>
-            <li>
-                <p>TV Shows</p>
-                <div>
-                    <a href="#">Popular</a>
-                    <a href="#">Airing Today</a>
-                    <a href="#">On TV</a>
-                    <a href="#">Top Rated</a>
-                </div>
-            </li>
-            <li>
-                <p>People</p>
-                <div>
-                    <a href="#">Popular People</a>
-                </div>
-            </li>
-            <li>
-                <p>More</p>
-                <div>
-                    <a href="#">Popular</a>
-                    <a href="#">Now Playing</a>
-                    <a href="#">Upcoming</a>
-                    <a href="#">Top Rated</a>
-                </div>
-            </li>
-        </ul>
-
+</div>
+<div class="search">
+    <div class="search__btn flex">
+        <div class="search__btn__icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="search__btn__input">
+            <input type="text" placeholder="Search for a movie, tv show, person...">
+        </div>
     </div>
 </div>
