@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngFor="let fim of fims" class="popularFim">
+        <div class="popularFim__trending ">
+            <div class="popularFim__trending__poster">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Popular Fims">
+            </div>
+            <div class="popularFim__trending__title info">
+                <p class="info__title">{{fim.original_title}}</p>
+                <p class="info__date">{{fim.release_date | date}}</p>
+            </div>
+        </div>
+    </div>
+</div>

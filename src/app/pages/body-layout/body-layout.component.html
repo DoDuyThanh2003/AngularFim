@@ -20,20 +20,66 @@
     </div>
     <div class="content__trending">
         <div class="content__trending fimHot">
-            <p class="text-2xl">Trending</p>
-            <div class="fimHot__nav">
-                <a href="">Today</a>
-                <a href="">This Week</a>
+            <div class="fimHot__menu flex gap-7">
+                <p class="text-2xl mt-2 font-medium">Trending</p>
+                <div class="fimHot__menu__nav">
+                    <a class="fimHot__menu__nav-today" href="javascript:void(0)" (click)="selectTab('today')">Today</a>
+                    <a class="fimHot__menu__nav-week" href="javascript:void(0)" (click)="selectTab('week')">This Week</a>
+                    <span></span>
+                </div>
             </div>
-            <div class="flex fimHot__days">
-                <div *ngFor="let fim of fims" class="fimHot__days-item">
-                    <div class="item-img">
-                        <img [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Poster Fims">
-                    </div>
-                    <div class="item-info">
-                        <p class="item-title">{{fim.title}}</p>
-                        <p class="item-date">{{fim.release_date | date}}</p>
-                    </div>
+        </div>
+        <app-today-fim-layout *ngIf="selectedTab === 'today'"></app-today-fim-layout>
+        <app-week-fim-layout *ngIf="selectedTab === 'week'"></app-week-fim-layout>
+    </div>
+    <div class="content__trailer">
+        <div class="content__trailer container">
+            <div class="flex gap-6 container__body ">
+                <p class="text-2xl">Latest Trailers</p>
+                <div class="flex container__body__task trailer">
+                    <a class="trailer__popular" href="">Popular</a>
+                    <a class="trailer__theaters" href="">In Theaters</a>
+                </div>
+            </div>
+            <div class="container__refesh">
+                <p>This panel didn't return any results. Try <a href="">Refeshing</a> it</p>
+            </div>
+        </div>
+    </div>
+    <div class="content__popular">
+        <div class="content__popular__title flex gap-5">
+            <p class="text-2xl font-semibold">What's Popular</p>
+            <a href="javascript:void(0)" (click)="selectFim('nowplaying')">In Theaters</a>
+        </div>
+    </div>
+    <div>
+        <app-popular-layout *ngIf="slecetedFim === 'popular'"></app-popular-layout>
+        <app-now-playing *ngIf="slecetedFim === 'nowplaying'"></app-now-playing>
+    </div>
+    <div class="content__join relative">
+        <div>
+            <img *ngIf="Movies" [src]="Movies" alt="Background ">
+        </div>
+        <div class="text-white content__join__body">
+            <p class="font-black text-3xl">Join Today</p>
+            <div class="contentUp flex">
+                <div class="contentUp__signUp">
+                    <p class="text-lg">Get access to maintain your own custom personal lists,
+                        track what you've seen and search and filter for what to watch
+                        next—regardless if it's in theatres or on TV.</p>
+                    <button>
+                        Sign Up
+                    </button>
+                </div>
+                <div class="contentUp__description">
+                    <ul class="list-disc pl-5">
+                        <li>Enjoy TMDB ad free</li>
+                        <li>Maintain a personal watchlist</li>
+                        <li>Filter by your subscribed streaming services</li>
+                        <li>Log the movies and TV shows you've seen</li>
+                        <li>Build custom lists</li>
+                        <li>Contribute to and improve our database</li>
+                    </ul>
                 </div>
             </div>
         </div>

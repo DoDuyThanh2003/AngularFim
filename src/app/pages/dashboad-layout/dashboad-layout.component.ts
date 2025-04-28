@@ -4,6 +4,7 @@ import { BodyLayoutComponent } from '../body-layout/body-layout.component';
 
 @Component({
   selector: 'app-dashboad-layout',
+  standalone: true,
   imports: [HeaderLayoutComponent,BodyLayoutComponent],
   templateUrl: './dashboad-layout.component.html',
   styleUrl: './dashboad-layout.component.scss'
