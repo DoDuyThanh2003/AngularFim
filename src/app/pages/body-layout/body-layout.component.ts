@@ -5,11 +5,14 @@ import { TodayFimLayoutComponent } from './today-fim-layout/today-fim-layout.com
 import { WeekFimLayoutComponent } from './week-fim-layout/week-fim-layout.component';
 import { PopularLayoutComponent } from './popular-layout/popular-layout.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { FooterLayoutComponent } from './footer-layout/footer-layout.component';
 
 @Component({
   selector: 'app-body-layout',
   standalone: true,
-  imports: [NgIf,CommonModule, TodayFimLayoutComponent, WeekFimLayoutComponent,PopularLayoutComponent,NowPlayingComponent],
+  imports: [NgIf,CommonModule, TodayFimLayoutComponent, WeekFimLayoutComponent,
+    PopularLayoutComponent,NowPlayingComponent, LeaderboardComponent,FooterLayoutComponent],
   templateUrl: './body-layout.component.html',
   styleUrl: './body-layout.component.scss'
 })

@@ -1,0 +1,388 @@
+@import "tailwindcss";
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+    &__title {
+        &__edit {
+            &-all {
+                span {
+                    // border-radius: 10px;
+                    background: linear-gradient(to right, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                }
+            }
+
+        }
+    }
+
+    .leaderboard {
+        &__bodyone {
+            width: 50%;
+
+            &_dietong {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .dietong {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 21%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 100%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_xebon {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .xebon {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 10%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 21%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_enterpr1se {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .enterpr1se {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 24%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 16%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_qualitylover {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .qualitylover {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 61%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 10%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_talestalker {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .talestalker {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 100%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 10%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__bodytwo {
+            width: 50%;
+
+            &_lvbb {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .lvbb {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 10%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 67%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_RodrigoCeni {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .RodrigoCeni {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 10%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 25%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_Hshineme {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .Hshineme {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 10%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 20%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_HaeRang {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .HaeRang {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 16%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 12%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &_hugochak {
+                &__avatar {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                width: 100%;
+
+                .hugochak {
+                    width: 100%;
+
+                    &__Statistical {
+                        &__raw {
+                            &-map {
+                                background: linear-gradient(45deg, rgb(30, 213, 169, 1), rgb(1, 180, 228, 1));
+                                height: 8px;
+                                width: 10%;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        &__task {
+                            &-map {
+                                background: linear-gradient(to right, rgb(253, 193, 112, 1), rgb(217, 59, 99, 1));
+                                width: 10%;
+                                height: 8px;
+                                border-radius: 10px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
