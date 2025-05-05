@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-today-fim-layout',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './today-fim-layout.component.html',
   styleUrl: './today-fim-layout.component.scss'
 })
 export class TodayFimLayoutComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private routes: Router) { }
   fims: any[] = []
   moviesToday: any[] = []
   ngOnInit(): void {

@@ -1,14 +1,16 @@
-<div class="flex fimDay">
+<div class="fimDay">
     <div *ngFor="let fim of fims" class="fimDay__body">
         <div class="fimDay__body__background">
             <img src="assets/bgrTrend.svg" alt="">
         </div>
         <div class="fimDay__body__item">
             <div class="fimDay__body__item-img">
-                <img [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Poster Fims">
+                <a [routerLink]="['/app-details-fim', fim.id]"> <img
+                        [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Poster Fims"> </a>
             </div>
             <div class="fimDay__body__item__info">
-                <p class="fimDay__body__item__info-title">{{fim.title}}</p>
+                <p class="fimDay__body__item__info-title"><a
+                        [routerLink]="['/app-details-fim', fim.id]">{{fim.title}}</a></p>
                 <p class="fimDay__body__item__info-date">{{fim.release_date | date}}</p>
             </div>
         </div>

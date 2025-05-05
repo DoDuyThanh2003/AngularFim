@@ -1,0 +1,125 @@
+<app-header-layout></app-header-layout>
+<div>
+    <ul class="flex gap-10 justify-center ">
+        <li class="shortCut">
+            <p>Overview <i class="fa-solid fa-arrow-down"></i></p>
+            <div class="hidden shortCut__menuOver">
+                <div class="shortCut__menuOver__body">
+                    <a href="">Main</a>
+                    <a href="">Alternative Titles</a>
+                    <a href="">Cast & Crew</a>
+                    <a href="">Release Dates</a>
+                    <a href="">Translations</a>
+                </div>
+                <div class="shortCut__menuOver__footer">
+                    <a href="">Changes</a>
+                </div>
+            </div>
+        </li>
+        <li class="shortMedia">
+            <p>Media <i class="fa-solid fa-arrow-down"></i></p>
+            <div class="hidden shortMedia__content">
+                <ul>
+                    <li class="flex justify-between"><a href="">Backdrops</a>
+                        <p>97</p>
+                    </li>
+                    <li class="flex justify-between"><a href="">Logos</a>
+                        <p>42</p>
+                    </li>
+                    <li class="flex justify-between"><a href="">Posters</a>
+                        <p>303</p>
+                    </li>
+                    <li class="flex justify-between shortMedia__content__video">
+                        <p>Video</p>
+                        <p><i class="fa-solid fa-arrow-right"></i></p>
+                        <div class="hidden shortMedia__content__video-item">
+                            <p><i class="fa-solid fa-plus"></i> Login to Add a video</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="shortFamdom">
+            <p>Fandom <i class="fa-solid fa-arrow-down"></i></p>
+            <div class="shortFamdom__content hidden">
+                <ul class="shortFamdom__content__body">
+                    <li class="shortFamdom__content__body__discuss">
+                        <p>Discussions <i class="fa-solid fa-arrow-right"></i></p>
+                        <div class="hidden shortFamdom__content__body__discuss-item">
+                            <a href="">Overview</a>
+                            <a href="">General</a>
+                            <a href="">Content Issues</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">Review</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="shortShare">
+            <p>Share <i class="fa-solid fa-arrow-down"></i></p>
+            <div class="hidden shortShare__body">
+                <a href="">Share Link</a>
+                <a href="">Facebook</a>
+                <a href="">Tweet</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<div *ngIf="DetailsFim" class="detailsFim text-white"
+    [style.background-image]="'url(https://image.tmdb.org/t/p/w1280' + DetailsFim.backdrop_path + ')'">
+    <div class="flex detailsFim__content gap-10">
+        <div class="detailsFim__content__panner">
+            <img [src]="'https://image.tmdb.org/t/p/w500'+DetailsFim.poster_path" alt="Details Pannel" width="300px">
+        </div>
+        <div class="detailsFim__content__body">
+            <div class="">
+                <div class="flex text-4xl gap-3">
+                    <p>{{DetailsFim.title}}</p>
+                    <p class="text-gray-500">(2025)</p>
+                </div>
+                <div class="flex gap-5">
+                    <span class="">PG-13</span>
+                    <p>{{formatDate(DetailsFim.release_date)}} (VN)</p>
+                    <p>{{ getGenreNames()}}</p>
+                </div>
+            </div>
+            <div class="detailsFim__content__body__user scoreUser">
+                <div class="flex gap-5 scoreUser__title">
+                    <span>Score</span>
+                    <strong>User<br>Score</strong>
+                    <div>
+                        <p>What's your Vibe?</p>
+                    </div>
+                </div>
+                <div class="scoreUser__content flex gap-10" >
+                    <div class="scoreUser__content__lobby flex gap-10">
+                        <p class="scoreUser__content__lobby-item"><i class="fa-solid fa-list"></i></p>
+                        <p class="scoreUser__content__lobby-item"><i class="fa-solid fa-heart"></i></p>
+                        <p class="scoreUser__content__lobby-item"><i class="fa-solid fa-file"></i></p>
+                    </div>
+                    <div class="scoreUser__content__trailer">
+                        <a href="#"><i class="fa-solid fa-triangle-exclamation"></i> Play Trailer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-3">
+                    <span class="text-gray-400">{{DetailsFim.tagline}}</span>
+                    <h3 class="text-xl">OverView</h3>
+                    <p>{{DetailsFim.overview}}</p>
+                </div>
+                <div class="flex flex-wrap gap-20">
+                    <div *ngFor="let person of Compose">
+                        <div>
+                            <strong>{{ person.name }}</strong>
+                            <p class="text-gray-500">{{ person.jobs.join(', ') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer-layout></app-footer-layout>

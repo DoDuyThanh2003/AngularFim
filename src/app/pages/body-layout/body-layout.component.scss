@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+.search {
+    &__btn {
+        padding: 0 40px;
+        width: 100%;
+
+        &__icon {
+            padding: 10px 5px;
+        }
+
+        &__input {
+            padding: 10px 5px;
+            width: 100%;
+
+            input {
+                width: 100%;
+                // border: 0px solid #ccc;  
+            }
+
+            input::placeholder {
+                color: #ccc;
+                font-size: 18px;
+            }
+
+            input:focus {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+
 .content {
     &__logged {
         background-color: deepskyblue;
@@ -103,6 +134,7 @@
             }
         }
     }
+
     .content__trailer {
         background-color: #032541;
         color: white;
@@ -124,6 +156,7 @@
                     font-weight: 500;
                 }
             }
+
             &__refesh {
                 a {
                     color: #01B4E4;
@@ -131,11 +164,14 @@
             }
         }
     }
+
     &__popular {
         width: 65%;
         margin: 0 auto;
+
         &__title {
-            margin:20px 0;
+            margin: 20px 0;
+
             a {
                 background-color: #032541;
                 padding: 5px 30px;
@@ -144,18 +180,22 @@
             }
         }
     }
+
     &__join {
         position: relative;
+
         img {
             filter: invert(15%) sepia(74%) saturate(6132%) hue-rotate(283deg) brightness(82%) contrast(118%);
             width: 100%;
             height: 276px;
             object-fit: cover;
         }
+
         &__body {
             position: absolute;
             top: 20px;
             left: 20%;
+
             .contentUp {
                 &__signUp {
                     button {
