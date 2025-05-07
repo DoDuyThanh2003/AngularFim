@@ -33,15 +33,18 @@
             <div class="fimHot__menu flex gap-7">
                 <p class="text-2xl mt-2 font-medium">Trending</p>
                 <div class="fimHot__menu__nav">
-                    <a class="fimHot__menu__nav-today" href="javascript:void(0)" (click)="selectTab('today')">Today</a>
-                    <a class="fimHot__menu__nav-week" href="javascript:void(0)" (click)="selectTab('week')">This
-                        Week</a>
-                    <span></span>
+                    <input type="radio" name="toggle" id="today" checked (change)="selectTab('today')">
+                    <input type="radio" name="toggle" id="week" (change)="selectTab('week')">
+                    <div class="toggle-bg"></div>
+                    <label class="toggle-label label-today" for="today">Today</label>
+                    <label class="toggle-label label-week" for="week">This Week</label>
                 </div>
             </div>
         </div>
-        <app-today-fim-layout *ngIf="selectedTab === 'today'"></app-today-fim-layout>
-        <app-week-fim-layout *ngIf="selectedTab === 'week'"></app-week-fim-layout>
+        <div [style.minHeight.px]="500">
+            <app-today-fim-layout *ngIf="selectedTab === 'today'"></app-today-fim-layout>
+            <app-week-fim-layout *ngIf="selectedTab === 'week'"></app-week-fim-layout>
+          </div>
     </div>
     <div class="content__trailer">
         <div class="content__trailer container">

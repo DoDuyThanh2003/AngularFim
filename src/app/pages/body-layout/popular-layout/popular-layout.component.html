@@ -2,10 +2,12 @@
     <div *ngFor="let fim of fims" class="popularFim">
         <div class="popularFim__trending ">
             <div class="popularFim__trending__poster">
-                <img [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Popular Fims">
+                <a [routerLink]="['/app-details-fim', fim.id]"> <img
+                    [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Poster Fims"> </a>
             </div>
             <div class="popularFim__trending__title info">
-                <p class="info__title">{{fim.original_title}}</p>
+                <p class="info__title"><a
+                    [routerLink]="['/app-details-fim', fim.id]">{{fim.title}}</a></p>
                 <p class="info__date">{{fim.release_date | date}}</p>
             </div>
         </div>

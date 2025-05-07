@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-popular-layout',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './popular-layout.component.html',
   styleUrl: './popular-layout.component.scss'
 })

@@ -4,10 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { FooterLayoutComponent } from '../body-layout/footer-layout/footer-layout.component';
+import { CastLayoutComponent } from './cast-layout/cast-layout.component';
 
 @Component({
   selector: 'app-details-fim',
-  imports: [HeaderLayoutComponent, NgIf, CommonModule,FooterLayoutComponent],
+  imports: [HeaderLayoutComponent, NgIf, CommonModule,FooterLayoutComponent,CastLayoutComponent],
   templateUrl: './details-fim.component.html',
   styleUrl: './details-fim.component.scss'
 })

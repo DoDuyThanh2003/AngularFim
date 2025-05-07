@@ -93,44 +93,65 @@
         .fimHot {
             width: 63%;
             margin: 0 auto;
-
             &__menu {
                 display: flex;
                 margin: 20px 0;
 
                 &__nav {
-                    border: 2px solid #032541;
-                    border-radius: 30px;
-                    padding: 4px 15px;
                     position: relative;
-                    margin-top: 6px;
+                    width: 200px;
+                    height: 40px;
+                    border: 2px solid #002c4d;
+                    border-radius: 999px;
+                    display: flex;
+                    overflow: hidden;
+                    font-family: sans-serif;
 
-                    &-today {
-                        color: #032541;
-                        z-index: 10;
-                        font-weight: 500;
+
+                        input {
+                            display: none;
+                        }
+              
+
+                    .toggle-label {
+                        flex: 1;
+                        text-align: center;
+                        line-height: 40px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        z-index: 2;
+                        color: #002c4d;
+                        transition: color 0.3s;
+                        position: relative;
                     }
 
-                    &-week {
-                        padding: 4px 15px;
-                        color: #032541;
-                        font-weight: 500;
-                        z-index: 10;
+                    .toggle-bg {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 50%;
+                        height: 100%;
+                        background-color: #002c4d;
+                        border-radius: 999px;
+                        z-index: 1;
+                        transition: transform 0.3s ease;
                     }
 
-                    // span {
-                    //     position: absolute;
-                    //     background: #032541;
-                    //     top: 0;
-                    //     left: 0;
-                    //     width: 70px;
-                    //     height: 38px;
-                    //     border-radius: 15px;
-                    //     transform: .5s;
-                    //     z-index: 0;
-                    // }
+                    #today:checked ~ .toggle-bg {
+                        transform: translateX(0%);
+                    }
 
+                    #week:checked ~ .toggle-bg {
+                        transform: translateX(100%);
+                    }
+
+                    #today:checked ~ .label-today,
+                    #week:checked ~ .label-week {
+                        color: #aaf0d1;
+                    }
                 }
+
             }
         }
     }

@@ -1,0 +1,86 @@
+@import "tailwindcss";
+.TopCast {
+    width: 80%;
+    padding: 30px 40px;
+    margin: 0 auto;
+    &__left {
+       width: 65%;
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+       &__content {
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 10px;
+        &-item {
+            flex: 0 0 auto;
+            width: 138px;
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            img{
+                border-radius: 10px;
+            }
+            p{
+                white-space: normal;
+               padding: 5px 0 0 10px;
+            }
+        }
+        &-more{
+            a {
+                text-decoration: none;
+                font-weight: 500;
+                color: black;
+            }
+        }
+       }
+       &__comment {
+        &__title {
+            .toggle {
+                position: relative;
+                input {
+                   display: none;
+                }
+                .toggle-bg {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 40%;
+                    height: 15%;
+                    background-color: #000;
+                    z-index: 1;
+                    transition: transform 0.3s ease;
+                }
+                #review:checked ~ .toggle-bg {
+                    transform: translateX(0%);
+                  }
+               
+                  #discusions:checked ~ .toggle-bg {
+                    transform: translateX(100%);
+                  }
+            }
+        }
+       }
+    }
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 60px;
+        &__keyword {
+            width: 55%;
+            &-item {
+                font-size: 14px;
+                padding-top: 10px;
+                div {
+                    border: 1px solid #dad9d9;
+                    padding: 0 5px;
+                    background-color: #e6e5e5;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

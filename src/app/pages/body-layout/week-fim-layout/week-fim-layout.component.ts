@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-week-fim-layout',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './week-fim-layout.component.html',
   styleUrl: './week-fim-layout.component.scss'
 })

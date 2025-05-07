@@ -1,0 +1,71 @@
+<div class="TopCast flex gap-15">
+    <div class="TopCast__left">
+        <div>
+            <h2 class="text-2xl font-medium">Top Billed Cast</h2>
+        </div>
+        <div class="flex TopCast__left__content">
+            <div *ngFor="let cast of topCast " class="TopCast__left__content-item">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+ cast.profile_path" alt="">
+                <p class="font-medium ">{{cast.name}}</p>
+                <p class="text-sm">{{cast.character}}</p>
+            </div>
+            <div class="TopCast__left__content-more flex justify-center items-center">
+                <a href="#" class="text-blue-500 underline">View More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="mb-3">
+            <a class="text-xl" href="#">Full Cast & Crew</a>
+        </div>
+        <hr class="border-t-gray-300">
+        <div class="TopCast__left__comment">
+            <div class="TopCast__left__comment__title flex gap-10">
+                <div>
+                    <p class="font-bold text-2xl">Social</p>
+                </div>
+                <div class="toggle flex gap-3">
+                    <input type="radio" name="toggle" id="review" checked>
+                    <input type="radio" name="toggle" id="discusions">
+                    <div class="toggle-bg"></div>
+                    <label class="toggle-label label-today text-lg" for="review">Review</label>
+                    <label class="toggle-label label-week text-lg" for="discusions">Discussions</label>
+                </div>
+            </div>  
+            <div class="block mt-5 mb-5">
+                <p>We don't have any reviews and discussions for Biệt Đội Sấm Sét*.</p>
+            </div>
+            <hr class="border-t-gray-300">
+        </div>
+        <app-media-layout></app-media-layout>
+    </div>
+    <div class="TopCast__right">
+        <div>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+        <div>
+            <p class="font-bold">Original Title</p>
+            <p>{{statistics.original_title}}</p>
+        </div>
+        <div>
+            <p class="font-bold">Status</p>
+            <p>{{statistics.status}}</p>
+        </div>
+        <div>
+            <p class="font-bold">Original Language</p>
+            <p>{{statistics.original_language}}</p>
+        </div>
+        <div>
+            <p class="font-bold">Budget</p>
+            <p>$ {{statistics.budget | number:'1.2-2'}}</p>
+        </div>
+        <div>
+            <p class="font-bold">Revenue</p>
+            <p>$ {{statistics.revenue| number:'1.2-2'}}</p>
+        </div>
+        <div class="TopCast__right__keyword">
+            <p class="font-bold">Keyword</p>
+            <div class="flex  flex-wrap gap-2 TopCast__right__keyword-item ">
+                <div *ngFor="let keyword of keyWork">{{keyword.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
