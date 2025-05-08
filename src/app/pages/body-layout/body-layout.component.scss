@@ -1,36 +1,5 @@
 @import "tailwindcss";
 
-.search {
-    &__btn {
-        padding: 0 40px;
-        width: 100%;
-
-        &__icon {
-            padding: 10px 5px;
-        }
-
-        &__input {
-            padding: 10px 5px;
-            width: 100%;
-
-            input {
-                width: 100%;
-                // border: 0px solid #ccc;  
-            }
-
-            input::placeholder {
-                color: #ccc;
-                font-size: 18px;
-            }
-
-            input:focus {
-                border: none;
-                outline: none;
-            }
-        }
-    }
-}
-
 .content {
     &__logged {
         background-color: deepskyblue;
@@ -67,6 +36,7 @@
                     background-color: rgb(255, 255, 255);
                     padding: 12px 15px;
                     border-radius: 30px;
+                    color: #000000;
                 }
 
                 input::placeholder {

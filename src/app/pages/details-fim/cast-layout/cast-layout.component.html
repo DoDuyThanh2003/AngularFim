@@ -22,12 +22,11 @@
                 <div>
                     <p class="font-bold text-2xl">Social</p>
                 </div>
-                <div class="toggle flex gap-3">
-                    <input type="radio" name="toggle" id="review" checked>
-                    <input type="radio" name="toggle" id="discusions">
-                    <div class="toggle-bg"></div>
-                    <label class="toggle-label label-today text-lg" for="review">Review</label>
-                    <label class="toggle-label label-week text-lg" for="discusions">Discussions</label>
+                <div class="toggleSocial flex gap-3">
+                    <input type="radio" name="toggleSocial" id="review" checked>
+                    <input type="radio" name="toggleSocial" id="discusions">
+                    <label class="toggleSocial-label label-today text-lg" for="review">Review</label>
+                    <label class="toggleSocial-label label-week text-lg" for="discusions">Discussions</label>
                 </div>
             </div>  
             <div class="block mt-5 mb-5">
@@ -65,6 +64,86 @@
             <p class="font-bold">Keyword</p>
             <div class="flex  flex-wrap gap-2 TopCast__right__keyword-item ">
                 <div *ngFor="let keyword of keyWork">{{keyword.name}}</div>
+            </div>
+        </div>
+        <div class="TopCast__right__hr">
+            <hr class="border-t-gray-300" >
+        </div>
+        <div class="TopCast__right__contentScore">
+            <p class="text-lg font-semibold">Content Score</p>
+            <div class="TopCast__right__contentScore__item">
+                <p class="TopCast__right__contentScore__item-number">100</p>
+                <p class="TopCast__right__contentScore__item-text">Yes! Looking good!</p>
+            </div>
+        </div>
+        <div class="TopCast__right__User">
+            <p class="font-bold text-xl">Top Contributors</p>
+            <div class="flex flex-col gap-5">
+                <div class="flex  gap-2">
+                    <div class=" flex items-center">
+                        <img src="assets/avatar.svg" alt="" width="60px" class="rounded-4xl">
+                    </div>
+                    <div>
+                        <div >
+                            <div>
+                                <p>1,126</p>
+                            </div>
+                            <div >
+                                <p>raze464</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex  gap-2">
+                    <div class=" flex items-center">
+                        <img src="assets/avatar.svg" alt="" width="60px" class="rounded-4xl">
+                    </div>
+                    <div>
+                        <div >
+                            <div>
+                                <p>287</p>
+                            </div>
+                            <div >
+                                <p>solomono</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex  gap-2">
+                    <div class=" flex items-center">
+                        <img src="assets/avatar.svg" alt="" width="60px" class="rounded-4xl">
+                    </div>
+                    <div>
+                        <div >
+                            <div>
+                                <p>166</p>
+                            </div>
+                            <div >
+                                <p>Projectionist2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex  gap-2">
+                    <div class=" flex items-center">
+                        <img src="assets/avatar.svg" alt="" width="60px" class="rounded-4xl">
+                    </div>
+                    <div>
+                        <div >
+                            <div>
+                                <p>120</p>
+                            </div>
+                            <div >
+                                <p>SP3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="TopCast__right__User-login">
+                    <button><i class="fa-solid fa-lock"></i> View Edit History</button>
+                    <a href="#"><i class="fa-solid fa-keyboard"></i> Keyboard Shortcuts</a>
+                    <p><i class="fa-solid fa-circle-info"></i> Login to report an issue</p>
+                </div>
             </div>
         </div>
     </div>

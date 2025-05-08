@@ -1,0 +1,30 @@
+.search {
+    &__btn {
+        padding: 0 40px;
+        width: 100%;
+
+        &__icon {
+            padding: 10px 5px;
+        }
+
+        &__input {
+            padding: 10px 5px;
+            width: 100%;
+
+            input {
+                width: 100%;
+                // border: 0px solid #ccc;  
+            }
+
+            input::placeholder {
+                color: #ccc;
+                font-size: 18px;
+            }
+
+            input:focus {
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}

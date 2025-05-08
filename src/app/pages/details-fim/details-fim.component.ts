@@ -6,6 +6,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { FooterLayoutComponent } from '../body-layout/footer-layout/footer-layout.component';
 import { CastLayoutComponent } from './cast-layout/cast-layout.component';
 
+
 @Component({
   selector: 'app-details-fim',
   imports: [HeaderLayoutComponent, NgIf, CommonModule,FooterLayoutComponent,CastLayoutComponent],
@@ -31,8 +32,6 @@ export class DetailsFimComponent implements OnInit {
         if (allowedJobs.includes(person.job)) {
           if (!uniqueCrew[person.name]) {
             uniqueCrew[person.name] = { name: person.name, jobs: [person.job] };
-          } else if (!uniqueCrew[person.name].jobs.includes(person.job)) {
-            uniqueCrew[person.name].jobs.push(person.job);
           }
         }
       });

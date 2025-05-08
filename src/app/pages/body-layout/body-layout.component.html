@@ -1,13 +1,4 @@
-<div class="search">
-    <div class="search__btn flex">
-        <div class="search__btn__icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div class="search__btn__input">
-            <input type="text" placeholder="Search for a movie, tv show, person...">
-        </div>
-    </div>
-</div>
+<!-- <app-search-layout></app-search-layout> -->
 <div class="content">
     <div class="content__logged">
         <div class="content__logged__text">
@@ -23,8 +14,10 @@
                 <p class="text-3xl font-normal">Millions of movies, TV shows and peopel to discover. Explore now.</p>
             </div>
             <div class="content__welcome__body-search relative">
-                <input class="w-full" type="text" placeholder="Search for a movies, tv show, person...">
-                <button>Search</button>
+                 <form  (submit)="searchMovies($event,moviesFim.value)" > 
+                    <input #moviesFim class="w-full" type="text" placeholder="Search for a movies, tv show, person...">
+                    <button type="submit">Search</button>
+                </form>
             </div>
         </div>
     </div>
@@ -44,7 +37,7 @@
         <div [style.minHeight.px]="500">
             <app-today-fim-layout *ngIf="selectedTab === 'today'"></app-today-fim-layout>
             <app-week-fim-layout *ngIf="selectedTab === 'week'"></app-week-fim-layout>
-          </div>
+        </div>
     </div>
     <div class="content__trailer">
         <div class="content__trailer container">

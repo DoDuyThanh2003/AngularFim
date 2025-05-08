@@ -1,29 +1,71 @@
 <div>
-    <div>
+    <div class="">
+        <div class="flex selectMedia">
+            <div class="selectMedia__title">
+                <p class="font-bold text-2xl">Media</p>
+            </div>
+            <div class="selectMedia__choose">
+                <input type="radio" name="toggle" id="popula" checked (change)="selectTab('popular')">
+                <input type="radio" name="toggle" id="video" (change)="selectTab('video')">
+                <input type="radio" name="toggle" id="backdrop" (change)="selectTab('backdrop')">
+                <input type="radio" name="toggle" id="poster" (change)="selectTab('poster')">
+                <div class="toggle-bg"></div>
+                <label class="toggle-label label-popular" for="popula">Most Popular</label>
+                <label class="toggle-label label-video" for="video">Videos</label>
+                <label class="toggle-label label-backdrop" for="backdrop">Backdrops</label>
+                <label class="toggle-label label-poster" for="poster">Posters</label>
+            </div>
+        </div>
+
+        <div [style.minHeight.px]="350">
+            <div *ngIf="selectedTab === 'popular'">
+                <div class="flex">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="50%">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.poster_path" alt="" width="20%">
+                </div>
+            </div>
+            <div *ngIf="selectedTab === 'video'">
+                <div class="video flex">
+                    <div class="video__card" *ngFor="let video of trailerList">
+                        <a [href]="'https://www.youtube.com/watch?v=' + video.key" target="_blank">
+                            <img [src]="'https://img.youtube.com/vi/' + video.key + '/hqdefault.jpg'"
+                                alt="{{ video.name }}" />
+                            <div class="video__card-button"></div>
+                        </a>
+                    </div>
+                    <div class="video__login">
+                        <a href="#"><i class="fa-solid fa-plus"></i> Login to Add video</a>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="selectedTab === 'backdrop'">
+                <div class="flex">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="45%">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="45%">
+                </div>
+            </div>
+            <div *ngIf="selectedTab === 'poster'" class="poster flex">
+                <div *ngFor="let poster of PosterList" class="poster__item">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+poster.file_path" alt="">
+                </div>
+                <div class="poster__more">
+                    <p>View More <i class="fa-solid fa-arrows-to-dot"></i></p>
+                </div>
+            </div>
+        </div>
+        <hr class="border-t-gray-300">
         <div>
-            <p>media</p>
+            <p class="text-2xl font-medium mt-5 mb-3">Recommendations</p>
         </div>
-        <div>
-            <input type="radio" id="popula" checked>
-            <input type="radio" id="video">
-            <input type="radio" id="backdrop">
-            <input type="radio" id="poster">
+        <div class="recommented">
+            <div *ngFor=" let recomment of Recomment" class="recommented__content">
+                 <img [src]="'https://image.tmdb.org/t/p/w500'+recomment.backdrop_path" alt="Err">
+                 <div class="recommented__content__title flex justify-between">
+                    <p>{{recomment.title}}</p>
+                    <p>{{recomment.vote_average *10 | number:'1.0-0' }}%</p>
+                 </div>
+            </div>
         </div>
-        <div class="flex">
-            <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="50%">
-            <img [src]="'https://image.tmdb.org/t/p/w500'+popula.poster_path" alt="" width="20%">
-        </div>
-        <div>
-            <div class="video-card" *ngFor="let video of trailerList">
-                <a [href]="'https://www.youtube.com/watch?v=' + video.key" target="_blank">
-                  <img [src]="'https://img.youtube.com/vi/' + video.key + '/hqdefault.jpg'" alt="{{ video.name }}" />
-                  <div class="play-button"></div>
-                </a>
-              </div>
-        </div>
-        <div class="flex">
-            <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="45%">
-            <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="45%">
-        </div>
+
     </div>
 </div>
