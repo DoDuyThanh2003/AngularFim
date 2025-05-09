@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { DashboadLayoutComponent } from './pages/dashboad-layout/dashboad-layout.component';
 import { DetailsFimComponent } from './pages/details-fim/details-fim.component';
-import { QueryFimComponent } from './pages/query-fim/query-fim.component';
+import { QueryFimComponen } from './pages/query-fim/query-fim.component';
+
 
 export const routes: Routes = [
     {
@@ -19,6 +20,6 @@ export const routes: Routes = [
     },
     {
         path: 'search',
-        component: QueryFimComponent
+        component: QueryFimComponen
     }
 ];

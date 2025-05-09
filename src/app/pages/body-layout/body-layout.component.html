@@ -1,4 +1,4 @@
-<!-- <app-search-layout></app-search-layout> -->
+<app-search-layout></app-search-layout>
 <div class="content">
     <div class="content__logged">
         <div class="content__logged__text">
@@ -14,10 +14,9 @@
                 <p class="text-3xl font-normal">Millions of movies, TV shows and peopel to discover. Explore now.</p>
             </div>
             <div class="content__welcome__body-search relative">
-                 <form  (submit)="searchMovies($event,moviesFim.value)" > 
-                    <input #moviesFim class="w-full" type="text" placeholder="Search for a movies, tv show, person...">
-                    <button type="submit">Search</button>
-                </form>
+                    <input [(ngModel)]="searchQuery" name="searchQuery" class="w-full" type="text"
+                        placeholder="Search for a movies, tv show, person...">
+                    <button (click)="onSearch()">Search</button>
             </div>
         </div>
     </div>

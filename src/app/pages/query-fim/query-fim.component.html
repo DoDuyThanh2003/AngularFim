@@ -1,2 +1,101 @@
 <app-header-layout></app-header-layout>
 <app-search-layout></app-search-layout>
+<div class="searchMovies flex">
+    <div class="searchMovies__sliderBar">
+        <div class="searchMovies__sliderBar__title">
+            <p>Search Results</p>
+        </div>
+        <div class="searchMovies__sliderBar__body">
+            <a href="">TV Shows</a>
+            <a href="">Movies</a>
+            <a href="">People</a>
+            <a href="">Collections</a>
+            <a href="">Companies</a>
+            <a href="">Keywords</a>
+            <a href="">Networks</a>
+        </div>
+    </div>
+    <!-- <div class="searchMovies__tv">
+        <div *ngFor="let tv of tvFim " class="flex searchMovies__tv__item">
+            <div class="searchMovies__tv__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+tv.poster_path" alt="">
+            </div>
+            <div class="searchMovies__tv__item-title">
+                <p class="text-xl font-semibold">{{tv.original_name}}</p>
+                <p class="font-extralight">{{tv.first_air_date | date}}</p>
+                <p class="mt-3">{{tv.overview}}</p>
+            </div>
+        </div>
+    </div> -->
+    <div class="searchMovies__people">
+        <div *ngFor="let people of peopleFim " class="flex searchMovies__people__item">
+            <div class="searchMovies__people__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+people.profile_path" alt="">
+            </div>
+            <div class="searchMovies__people__item-title">
+                <p class="text-xl font-semibold">{{people.original_name}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="searchMovies__company">
+        <div *ngFor="let company of companFim " class="flex searchMovies__company__item">
+            <div class="searchMovies__company__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+company.poster_path" alt="">
+            </div>
+            <div class="searchMovies__company__item-title">
+                <p class="text-xl font-semibold">{{company.original_name}}</p>
+                <p class="font-extralight">{{company.first_air_date | date}}</p>
+                <p class="mt-3">{{company.overview}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="searchMovies__keyword">
+        <div *ngFor="let keyword of KeyWordFim " class="flex searchMovies__keyword__item">
+            <div class="searchMovies__keyword__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+keyword.poster_path" alt="">
+            </div>
+            <div class="searchMovies__keyword__item-title">
+                <p class="text-xl font-semibold">{{keyword.original_name}}</p>
+                <p class="font-extralight">{{keyword.first_air_date | date}}</p>
+                <p class="mt-3">{{keyword.overview}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="searchMovies__network">
+        <div *ngFor="let network of netWorkFim " class="flex searchMovies__keyword__item">
+            <div class="searchMovies__network__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+network.poster_path" alt="">
+            </div>
+            <div class="searchMovies__network__item-title">
+                <p class="text-xl font-semibold">{{network.original_name}}</p>
+                <p class="font-extralight">{{network.first_air_date | date}}</p>
+                <p class="mt-3">{{network.overview}}</p>
+            </div>
+        </div>
+    </div>
+        <div class="searchMovies__collection">
+        <div *ngFor="let collection of collectionFim " class="flex searchMovies__collection__item">
+            <div class="searchMovies__collection__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+collection.poster_path" alt="">
+            </div>
+            <div class="searchMovies__collection__item-title">
+                <p class="text-xl font-semibold">{{collection.original_name}}</p>
+                <p class="font-extralight">{{collection.first_air_date | date}}</p>
+                <p class="mt-3">{{collection.overview}}</p>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="searchMovies__movies">
+        <div *ngFor="let search of moviesFim" class="flex searchMovies__movies__item">
+            <div class="searchMovies__movies__item-img">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+search.poster_path" alt="">
+            </div>
+            <div class="searchMovies__movies__item-title">
+                <p class="text-xl font-semibold">{{search.original_title}}</p>
+                <p class="font-extralight">{{search.release_date | date}}</p>
+                <p class="mt-3">{{search.overview}}</p>
+            </div>
+        </div>
+    </div> -->
+</div>
+<app-footer-layout></app-footer-layout>
