@@ -21,24 +21,36 @@ export class QueryFimComponen implements OnInit {
   KeyWordFim: any = {}
   netWorkFim: any = {}
   collectionFim: any = {}
+  selectedQuery: string = 'movies'
+  currentPage = 1;
+  totalPages = 1;
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
-
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.query = params['query'] || '';
       if (this.query.trim()) {
         this.search(this.query);
+        this.loadMovieResults(1)
       }
     });
     let key = '09227b47e837630a07422bf8e3ba6674'
-    this.http.get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}`).subscribe(res => {
+    this.http.get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=1`).subscribe(res => {
       this.moviesFim = res.results
     })
     this.http.get<any>(`https://api.themoviedb.org/3/search/tv?api_key=${key}&query=${this.query}`).subscribe(res => {
       this.tvFim = res.results
     })
     this.http.get<any>(`https://api.themoviedb.org/3/search/person?api_key=${key}&query=${this.query}`).subscribe(res => {
-      this.peopleFim = res.results
+      this.peopleFim = res.results.map((person: any) => {
+        return {
+          name: person.name,
+          img: person.profile_path,
+          titles: person.known_for
+            .filter((item: any) => item.original_title)
+            .map((item: any) => item.original_title)
+        };
+      });
+      console.log(this.peopleFim);
     })
     this.http.get<any>(`https://api.themoviedb.org/3/search/company?api_key=${key}&query=${this.query}`).subscribe(res => {
       this.companFim = res.results
@@ -46,9 +58,9 @@ export class QueryFimComponen implements OnInit {
     this.http.get<any>(`https://api.themoviedb.org/3/search/keyword?api_key=${key}&query=${this.query}`).subscribe(res => {
       this.KeyWordFim = res.results
     })
-    // this.http.get<any>(`https://api.themoviedb.org/3/search/network?api_key=${key}&query=${this.query}`).subscribe(res => {
-    //   this.netWorkFim = res.results
-    // })
+    this.http.get<any>(`https://api.themoviedb.org/3/search/network?api_key=${key}&query=${this.query}`).subscribe(res => {
+      this.netWorkFim = res.results
+    })
     this.http.get<any>(`https://api.themoviedb.org/3/search/collection?api_key=${key}&query=${this.query}`).subscribe(res => {
       this.collectionFim = res.results
     })
@@ -56,4 +68,17 @@ export class QueryFimComponen implements OnInit {
   search(query: string) {
     console.log('Tìm kiếm với từ khóa:', query);
   }
+  selectSearch(query: string) {
+    this.selectedQuery = query
+  }
+  loadMovieResults(page: number = 1) {
+  const key = '09227b47e837630a07422bf8e3ba6674';
+  this.http
+    .get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=${page}`)
+    .subscribe((res) => {
+      this.moviesFim = res.results;
+      this.currentPage = res.page;
+      this.totalPages = res.total_pages;
+    });
+}
 }
