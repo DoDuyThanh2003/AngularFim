@@ -24,6 +24,12 @@ export class QueryFimComponen implements OnInit {
   selectedQuery: string = 'movies'
   currentPage = 1;
   totalPages = 1;
+  totalResult = 1;
+  currentPageTV = 1;
+  totalPagesTV = 1;
+  totalResultTV = 1;
+  currentPagePeople = 1;
+  totalPagesPeople = 1;
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -31,13 +37,14 @@ export class QueryFimComponen implements OnInit {
       if (this.query.trim()) {
         this.search(this.query);
         this.loadMovieResults(1)
+        this.loadTvResults(1)
       }
     });
     let key = '09227b47e837630a07422bf8e3ba6674'
     this.http.get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=1`).subscribe(res => {
       this.moviesFim = res.results
     })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/tv?api_key=${key}&query=${this.query}`).subscribe(res => {
+    this.http.get<any>(`https://api.themoviedb.org/3/search/tv?api_key=${key}&query=${this.query}&page=1`).subscribe(res => {
       this.tvFim = res.results
     })
     this.http.get<any>(`https://api.themoviedb.org/3/search/person?api_key=${key}&query=${this.query}`).subscribe(res => {
@@ -72,13 +79,24 @@ export class QueryFimComponen implements OnInit {
     this.selectedQuery = query
   }
   loadMovieResults(page: number = 1) {
-  const key = '09227b47e837630a07422bf8e3ba6674';
-  this.http
-    .get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=${page}`)
-    .subscribe((res) => {
-      this.moviesFim = res.results;
-      this.currentPage = res.page;
-      this.totalPages = res.total_pages;
-    });
-}
+    const key = '09227b47e837630a07422bf8e3ba6674';
+    this.http
+      .get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=${page}`)
+      .subscribe((res) => {
+        this.moviesFim = res.results;
+        this.currentPage = res.page;
+        this.totalPages = res.total_pages;
+        this.totalResult = res.total_results;
+      });
+  }
+  loadTvResults(page: number = 1) {
+    const key = '09227b47e837630a07422bf8e3ba6674';
+    this.http.get<any>(`https://api.themoviedb.org/3/search/tv?api_key=${key}&query=${this.query}&page=${page}`)
+      .subscribe((res) => {
+        this.tvFim = res.results;
+        this.currentPageTV = res.page;
+        this.totalPagesTV = res.total_pages;
+        this.totalResultTV = res.total_results;
+      });
+  }
 }

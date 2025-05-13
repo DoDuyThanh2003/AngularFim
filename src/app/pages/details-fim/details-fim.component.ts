@@ -40,7 +40,7 @@ export class DetailsFimComponent implements OnInit {
   }
   formatDate(dateString: string): string {
     const date = new Date(dateString);
-    return date.toLocaleDateString('vi-VN'); // Format theo tiếng Việt
+    return date.toLocaleDateString('vi-VN');
   }
   getGenreNames(): string {
     return this.DetailsFim.genres.map((genre: {id: number, name: string}) => genre.name).join(', ');

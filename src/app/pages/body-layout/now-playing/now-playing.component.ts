@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { FimService } from '../../../../services/fim.service';
 @Component({
   selector: 'app-now-playing',
   imports: [CommonModule],
@@ -9,13 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './now-playing.component.scss'
 })
 export class NowPlayingComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private fimService: FimService) { }
   fims: any[] = []
   ngOnInit(): void {
     let key = '09227b47e837630a07422bf8e3ba6674'
-    this.http.get<any>(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=vi-VN&page=1`).subscribe(res => {
+    this.fimService.getFimNowPlaying().subscribe(res => {
       this.fims = res.results;
-      console.log("Now playing")
     })
   }
 }

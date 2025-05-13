@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { FimService } from '../../../../services/fim.service';
 @Component({
   selector: 'app-popular-layout',
   imports: [CommonModule, RouterModule],
@@ -10,11 +10,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './popular-layout.component.scss'
 })
 export class PopularLayoutComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private fimService: FimService) {}
   fims: any[] = []
   ngOnInit(): void {
     let key = '09227b47e837630a07422bf8e3ba6674'
-    this.http.get<any>(`https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=vi-VN&page=1`).subscribe( res => {
+    this.fimService.getFimPopular().subscribe( res => {
       this.fims = res.results;
     })
   }
