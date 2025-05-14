@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderLayoutComponent } from '../header-layout/header-layout.component';
 import { SearchLayoutComponent } from '../search-layout/search-layout.component';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FooterLayoutComponent } from '../body-layout/footer-layout/footer-layout.component';
-
+import { FimService } from '../../../services/fim.service';
 @Component({
   selector: 'app-query-fim',
   imports: [HeaderLayoutComponent, SearchLayoutComponent, CommonModule, FooterLayoutComponent],
@@ -17,20 +16,15 @@ export class QueryFimComponen implements OnInit {
   moviesFim: any = {}
   tvFim: any = {}
   peopleFim: any = {}
-  companFim: any = {}
+  companyFim: any = {}
   KeyWordFim: any = {}
   netWorkFim: any = {}
   collectionFim: any = {}
   selectedQuery: string = 'movies'
-  currentPage = 1;
-  totalPages = 1;
-  totalResult = 1;
-  currentPageTV = 1;
-  totalPagesTV = 1;
-  totalResultTV = 1;
-  currentPagePeople = 1;
-  totalPagesPeople = 1;
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  currentPage: { [key: string]: number } = {};
+  totalPages: { [key: string]: number } = {};
+  totalResults: { [key: string]: number } = {};
+  constructor(private route: ActivatedRoute, private fimService: FimService) { }
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.query = params['query'] || '';
@@ -38,16 +32,19 @@ export class QueryFimComponen implements OnInit {
         this.search(this.query);
         this.loadMovieResults(1)
         this.loadTvResults(1)
+        this.loadPeopleResults(1)
+        this.loadCollectionResults(1)
+        this.loadCompanyResults(1)
+        this.loadKeywordResults(1)
       }
     });
-    let key = '09227b47e837630a07422bf8e3ba6674'
-    this.http.get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=1`).subscribe(res => {
+    this.fimService.getSearchFim('movie', this.query).subscribe(res => {
       this.moviesFim = res.results
     })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/tv?api_key=${key}&query=${this.query}&page=1`).subscribe(res => {
+    this.fimService.getSearchFim('tv', this.query).subscribe(res => {
       this.tvFim = res.results
     })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/person?api_key=${key}&query=${this.query}`).subscribe(res => {
+    this.fimService.getSearchFim('person', this.query).subscribe(res => {
       this.peopleFim = res.results.map((person: any) => {
         return {
           name: person.name,
@@ -59,16 +56,13 @@ export class QueryFimComponen implements OnInit {
       });
       console.log(this.peopleFim);
     })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/company?api_key=${key}&query=${this.query}`).subscribe(res => {
-      this.companFim = res.results
+    this.fimService.getSearchFim('company', this.query).subscribe(res => {
+      this.companyFim = res.results
     })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/keyword?api_key=${key}&query=${this.query}`).subscribe(res => {
+    this.fimService.getSearchFim('keyword', this.query).subscribe(res => {
       this.KeyWordFim = res.results
     })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/network?api_key=${key}&query=${this.query}`).subscribe(res => {
-      this.netWorkFim = res.results
-    })
-    this.http.get<any>(`https://api.themoviedb.org/3/search/collection?api_key=${key}&query=${this.query}`).subscribe(res => {
+    this.fimService.getSearchFim('collection', this.query).subscribe(res => {
       this.collectionFim = res.results
     })
   }
@@ -79,24 +73,53 @@ export class QueryFimComponen implements OnInit {
     this.selectedQuery = query
   }
   loadMovieResults(page: number = 1) {
-    const key = '09227b47e837630a07422bf8e3ba6674';
-    this.http
-      .get<any>(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${this.query}&page=${page}`)
+    this.fimService.getSearchFim('movie', this.query, page)
       .subscribe((res) => {
         this.moviesFim = res.results;
-        this.currentPage = res.page;
-        this.totalPages = res.total_pages;
-        this.totalResult = res.total_results;
+        this.currentPage['movie'] = res.page;
+        this.totalPages['movie'] = res.total_pages;
+        this.totalResults['movie'] = res.total_results;
       });
   }
   loadTvResults(page: number = 1) {
-    const key = '09227b47e837630a07422bf8e3ba6674';
-    this.http.get<any>(`https://api.themoviedb.org/3/search/tv?api_key=${key}&query=${this.query}&page=${page}`)
-      .subscribe((res) => {
-        this.tvFim = res.results;
-        this.currentPageTV = res.page;
-        this.totalPagesTV = res.total_pages;
-        this.totalResultTV = res.total_results;
-      });
+    this.fimService.getSearchFim('tv', this.query, page).subscribe((res) => {
+      this.tvFim = res.results;
+      this.currentPage['tv'] = res.page;
+      this.totalPages['tv'] = res.total_pages;
+      this.totalResults['tv'] = res.total_results;
+    });
+  }
+  loadPeopleResults(page: number = 1) {
+    this.fimService.getSearchFim('person', this.query, page).subscribe((res) => {
+      this.peopleFim = res.results;
+      this.currentPage['person'] = res.page;
+      this.totalPages['person'] = res.total_pages;
+      this.totalResults['person'] = res.total_results;
+    });
+  }
+
+  loadCollectionResults(page: number = 1) {
+    this.fimService.getSearchFim('collection', this.query, page).subscribe((res) => {
+      this.collectionFim['collection'] = res.results;
+      this.currentPage['collection'] = res.page;
+      this.totalPages['collection'] = res.total_pages;
+      this.totalResults['collection'] = res.total_results;
+    });
+  }
+  loadCompanyResults(page: number = 1) {
+    this.fimService.getSearchFim('company', this.query, page).subscribe((res) => {
+      this.companyFim['company'] = res.results;
+      this.currentPage['company'] = res.page;
+      this.totalPages['company'] = res.total_pages;
+      this.totalResults['company'] = res.total_results;
+    });
+  }
+  loadKeywordResults(page: number = 1) {
+    this.fimService.getSearchFim('keyword', this.query, page).subscribe((res) => {
+      this.KeyWordFim['keyword'] = res.results;
+      this.currentPage['keyword'] = res.page;
+      this.totalPages['keyword'] = res.total_pages;
+      this.totalResults['keyword'] = res.total_results;
+    });
   }
 }

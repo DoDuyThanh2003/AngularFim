@@ -1,18 +1,7 @@
-<div class="flex fimWeek">
-    <div *ngFor="let fim of fims" class="fimWeek__body">
-        <div class="fimWeek__body__background">
-            <img src="assets/bgrTrend.svg" alt="">
-        </div>
-        <div class="fimWeek__body__item">
-            <div class="fimWeek__body__item-img">
-                <a [routerLink]="['/app-details-fim', fim.id]"> <img
-                        [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Poster Fims"> </a>
-            </div>
-            <div class="fimWeek__body__item__info">
-                <p class="fimWeek__body__item__info-title"><a
-                    [routerLink]="['/app-details-fim', fim.id]">{{fim.title}}</a></p>
-                <p class="fimWeek__body__item__info-date">{{fim.release_date | date}}</p>
-            </div>
-        </div>
-    </div>
+<div class="contenFim">
+    <app-fim-item
+    *ngFor="let fim of fims"
+    [fim]="fim"
+    (clickFim)="handleClickFim(fim.id)">
+    </app-fim-item>
 </div>

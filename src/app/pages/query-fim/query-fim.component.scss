@@ -28,17 +28,19 @@
         &__body {
             padding: 5px 0;
 
-            a {
+            a{
                 display: block;
                 padding: 7px 20px;
 
             }
-
-            a:hover {
+            div:hover {
                 background-color: #f7f1f1;
             }
-            a.active {
+            div.active {
                 background-color: #ccc;
+            }
+            p {
+                 padding: 7px 20px;
             }
 
         }
