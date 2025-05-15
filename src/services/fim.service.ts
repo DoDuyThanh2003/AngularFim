@@ -9,19 +9,19 @@ export class FimService {
   private key = '09227b47e837630a07422bf8e3ba6674'
   private keyUrl = `api_key=${this.key}&language=vi`;
   constructor(private http: HttpClient) { }
-  getFim(): Observable<any> {
-    return this.http.get(`${this.httpUrl}/trending/movie/day?${this.keyUrl}`);
+  getFim(day :string): Observable<any> {
+    return this.http.get(`${this.httpUrl}/trending/movie/${day}?${this.keyUrl}`);
   }
-  getFimWeek(): Observable<any> {
-    return this.http.get(`${this.httpUrl}/trending/movie/week?${this.keyUrl}`);
+  getFimPopular(name :string): Observable<any> {
+    return this.http.get(`${this.httpUrl}/movie/${name}?${this.keyUrl}&page=1`);
   }
-  getFimPopular(): Observable<any> {
-    return this.http.get(`${this.httpUrl}/movie/popular?${this.keyUrl}&page=1`);
+  getSearchFim(type: string, query: string, page: number = 1): Observable<any> {
+    return this.http.get(`${this.httpUrl}/search/${type}?api_key=${this.key}&query=${encodeURIComponent(query)}&page=${page}`)
   }
-  getFimNowPlaying(): Observable<any> {
-    return this.http.get(`${this.httpUrl}/movie/now_playing?${this.keyUrl}&page=1`);
+  getDetailFim(id: string): Observable<any> {
+    return this.http.get<any>(`${this.httpUrl}/movie/${id}?${this.keyUrl}`)
   }
-   getSearchFim(type: string,query: string, page: number = 1): Observable<any> {
-      return this.http.get(`${this.httpUrl}/search/${type}?api_key=${this.key}&query=${encodeURIComponent(query)}&page=${page}`)
-   }
+  getCredit(id: string): Observable<any> {
+    return this.http.get<any>(`${this.httpUrl}/movie/${id}/credits?${this.keyUrl}`)
+  }
 }

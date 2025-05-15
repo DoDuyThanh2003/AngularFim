@@ -1,13 +1,5 @@
-<div class="container">
-    <div *ngFor="let fim of fims" class="NowFim">
-        <div class="NowFim__trending ">
-            <div class="NowFim__trending__poster">
-                <img [src]="'https://image.tmdb.org/t/p/w500'+fim.poster_path" alt="Popular Fims">
-            </div>
-            <div class="NowFim__trending__title info">
-                <p class="info__title">{{fim.original_title}}</p>
-                <p class="info__date">{{fim.release_date | date}}</p>
-            </div>
-        </div>
+<div class="contentFim">
+    <div class="contentFim__item">
+        <app-fim-item *ngFor="let fim of fims" [fim]="fim" (clickFim)="handlerClick(fim.id)"></app-fim-item>
     </div>
 </div>

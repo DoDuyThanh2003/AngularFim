@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "../../../services/fim.mixin.scss";
 .searchMovies {
     width: 75%;
     margin: 0 auto;
@@ -11,10 +11,10 @@
         border: 1px solid #ccc;
         height: fit-content;
         width: 20%;
-
+        display: flex;
+        flex-direction: column;
         &__title {
             color: white;
-
             p {
                 background-color: rgb(61, 176, 243);
                 font-size: 19px;
@@ -24,10 +24,8 @@
                 font-weight: 500;
             }
         }
-
         &__body {
             padding: 5px 0;
-
             a{
                 display: block;
                 padding: 7px 20px;
@@ -45,17 +43,10 @@
 
         }
     }
-
     &__people {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
+        @include columnStyle();
         &__item {
-
             gap: 20px;
-
             &-img {
                 width: 70px;
                 flex: 0 0 auto;
@@ -83,11 +74,7 @@
     }
 
     &__tv {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
+      @include columnStyle();
         &__item {
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -111,76 +98,14 @@
             }
         }
     }
-
-    &__movies {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        &__item {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            gap: 20px;
-            box-shadow: 1px 1px 5px rgb(207, 206, 206);
-
-            &-img {
-                width: 95px;
-                flex: 0 0 auto;
-
-                img {
-                    border-top-left-radius: 10px;
-                    border-bottom-left-radius: 10px;
-                }
-            }
-
-            &-title {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
-    }
-
     &__company {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
+    @include columnStyle();
         &__item {
             display: flex;
             flex-direction: column;
         }
     }
-
-    &__collection {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        &__item {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            gap: 20px;
-            box-shadow: 1px 1px 5px rgb(207, 206, 206);
-
-            &-img {
-                width: 95px;
-                flex: 0 0 auto;
-
-                img {
-                    border-top-left-radius: 10px;
-                    border-bottom-left-radius: 10px;
-                }
-            }
-
-            &-title {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
+    &____keyword {
+         @include columnStyle();
     }
 }

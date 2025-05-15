@@ -1,26 +1,13 @@
 .fimDay {
     &__body {
-        position: relative;
         width: 150px;
-        &__background {
-            // overflow: hidden;
-
-            img {
-                margin-top: 70%;
-                object-fit: cover;
-                z-index: 1;
-            }
-        }
-
         &__item {
             flex: 0 0 auto;
             width: 150px;
             overflow: hidden;
-            position: absolute;
             padding-left: 30px;
             top: 0;
             z-index: 2;
-
             &-img {
                 img {
                     width: 100%;
@@ -30,7 +17,6 @@
                     border-radius: 8px;
                 }
             }
-
             &__info {
                 margin-top: 8px;
                 margin-left: 5px;

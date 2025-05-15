@@ -1,6 +1,8 @@
-<div class="contenFim">
-<app-fim-item 
-*ngFor="let fim of fims" 
-[fim]="fim" 
-(clickFim)="handleClickFim($event)"></app-fim-item>
+<div class="contentFim">
+    <div class="contentFim__background">
+        <img src="assets/bgrTrend.svg" alt="">
+    </div>
+    <div class="contentFim__item">
+        <app-fim-item *ngFor="let fim of fims" [fim]="fim" (clickFim)="handleClickFim($event)"></app-fim-item>
+    </div>
 </div>

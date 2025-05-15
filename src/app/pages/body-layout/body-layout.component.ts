@@ -21,13 +21,12 @@ import { FimService } from '../../../services/fim.service';
   styleUrl: './body-layout.component.scss'
 })
 export class BodyLayoutComponent implements OnInit {
-  constructor(private http: HttpClient, private router :Router, private fimService: FimService ) { }
+  constructor( private router :Router, private fimService: FimService ) { }
   Movies: string = ''
   selectedTab: string = 'today';
   searchQuery: string = '';
   ngOnInit(): void {
-    let key = '09227b47e837630a07422bf8e3ba6674'
-    this.fimService.getFim().subscribe((res: any) => {
+    this.fimService.getFim('day').subscribe((res: any) => {
       let firstFim = res.results[0];
       let backdrop_path = firstFim.backdrop_path;
       this.Movies = `https://media.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)${backdrop_path}`
@@ -36,9 +35,9 @@ export class BodyLayoutComponent implements OnInit {
   selectTab(tab: string) {
     this.selectedTab = tab;
   }
-  slecetedFim: string = 'popular'
+  slectedFim: string = 'popular'
   selectFim(select: string) {
-    this.slecetedFim = select
+    this.slectedFim = select
   }
   onSearch() {
     if (this.searchQuery.trim()) {

@@ -4,7 +4,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="search__btn__input">
-            <input type="text" placeholder="Search for a movie, tv show, person...">
+            <input [(ngModel)]="searchQuery" name="searchQuery" type="text" placeholder="Search for a movie, tv show, person..." [value]="searchQuery" (keyup.enter)="onSearch()">
         </div>
     </div>
 </div>

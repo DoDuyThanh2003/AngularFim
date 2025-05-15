@@ -6,8 +6,9 @@
             <p>Search Results</p>
         </div>
         <div class="searchMovies__sliderBar__body">
-            <div class="flex justify-between" (click)="selectSearch('movies')" [class.active]="selectedQuery === 'movies'">
-                <p>Movies </p>
+            <div class="flex justify-between" (click)="selectSearch('movies')"
+                [class.active]="selectedQuery === 'movies'">
+                <p>Movies</p>
                 <p>{{totalResults['movie']}}</p>
             </div>
             <div class="flex justify-between" (click)="selectSearch('tv')" [class.active]="selectedQuery === 'tv'">
@@ -16,8 +17,7 @@
             </div>
             <div class="flex justify-between" (click)="selectSearch('person')"
                 [class.active]="selectedQuery === 'people'">
-                <a>People
-                </a>
+                <a>People</a>
                 <p>{{totalResults['person'] }}</p>
             </div>
             <div class="flex justify-between" (click)="selectSearch('collection')"
@@ -28,14 +28,13 @@
             <div class="flex justify-between" (click)="selectSearch('company')"
                 [class.active]="selectedQuery === 'company'">
                 <p>Companies</p>
-                    <p>{{totalResults['company']}}</p>
+                <p>{{totalResults['company']}}</p>
             </div>
             <div class="flex justify-between" (click)="selectSearch('keyword')"
                 [class.active]="selectedQuery === 'keyword'">
                 <p>Keywords</p>
                 <p>{{totalResults['keyword']}}</p>
             </div>
-
         </div>
     </div>
     <div class="searchMovies__tv" *ngIf="selectedQuery ==='tv'">
@@ -50,10 +49,11 @@
                 <p class="mt-3">{{tv.overview}}</p>
             </div>
         </div>
-        <div class="flex gap-5 justify-center" >
+        <div class="flex gap-5 justify-center" *ngIf="totalResults['tv']>1">
             <button (click)="loadTvResults(currentPage['tv'] - 1)" [disabled]="currentPage['tv']=== 1">&lt;</button>
             <span>Trang {{ currentPage['tv'] }} / {{ totalPages['tv'] }}</span>
-            <button (click)="loadTvResults(currentPage['tv'] + 1)" [disabled]="currentPage['tv'] === totalPages['tv']">&gt;</button>
+            <button (click)="loadTvResults(currentPage['tv'] + 1)"
+                [disabled]="currentPage['tv'] === totalPages['tv']">&gt;</button>
         </div>
     </div>
     <div class="searchMovies__people" *ngIf="selectedQuery ==='person'">
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex gap-5 justify-center">
+        <div class="flex gap-5 justify-center" *ngIf="totalResults['person']>1">
             <button (click)="loadPeopleResults(currentPage['person'] - 1)"
                 [disabled]="currentPage['person'] === 1">&lt;</button>
             <span>Trang {{ currentPage['person'] }} / {{ totalPages['person'] }}</span>
@@ -90,7 +90,7 @@
             </div>
             <p class="text-xl ">{{company.name}}</p>
         </div>
-        <div class="flex gap-5 justify-center">
+        <div class="flex gap-5 justify-center" *ngIf="totalResults['company']>1">
             <button (click)="loadCompanyResults(currentPage['company'] - 1)"
                 [disabled]="currentPage['company'] === 1">&lt;</button>
             <span>Trang {{ currentPage['company'] }} / {{ totalPages['company'] }}</span>
@@ -105,7 +105,7 @@
             </div>
             <p class="">{{keyword.name}}</p>
         </div>
-        <div class="flex gap-5 justify-center">
+        <div class="flex gap-5 justify-center" *ngIf="totalResults['keyword']>1">
             <button (click)="loadKeywordResults(currentPage['keyword'] - 1)" [disabled]="currentPage['keyword']=== 1">
                 &lt;</button>
             <span>Trang {{ currentPage['keyword'] }} / {{ totalPages['keyword'] }}</span>
@@ -113,44 +113,52 @@
                 [disabled]="currentPage['keyword'] === totalPages['keyword']">&gt;</button>
         </div>
     </div>
-    <div class="searchMovies__collection" *ngIf="selectedQuery ==='collection'">
-        <div *ngFor="let collection of collectionFim " class="flex searchMovies__collection__item">
-            <div class="searchMovies__collection__item-img">
+    <div class="searchMovies__tv" *ngIf="selectedQuery ==='collection'">
+        <div *ngFor="let collection of collectionFim " class="flex searchMovies__tv__item">
+            <div class="searchMovies__tv__item-img">
                 <img *ngIf="collection.poster_path" [src]="'https://image.tmdb.org/t/p/w500'+collection.poster_path"
                     alt="">
                 <img *ngIf="!collection.poster_path" src="assets/imgErr.PNG" alt="Ảnh dự phòng">
             </div>
-            <div class="searchMovies__collection__item-title">
+            <div class="searchMovies__tv__item-title">
                 <p class="text-xl font-semibold">{{collection.original_name}}</p>
                 <p class="font-extralight">{{collection.first_air_date | date}}</p>
                 <p class="mt-3">{{collection.overview}}</p>
             </div>
         </div>
-        <div class="flex gap-5 justify-center">
-            <button (click)="loadCollectionResults(currentPage['collection'] - 1)" [disabled]="currentPage['collection'] === 1">
+        <div *ngIf="totalResults['collection'] <=1">
+            <p>There are no movies that matched your query.</p>
+        </div>
+        <div class="flex gap-5 justify-center" *ngIf="totalResults['collection']>1">
+            <button (click)="loadCollectionResults(currentPage['collection'] - 1)"
+                [disabled]="currentPage['collection'] === 1">
                 &lt;</button>
             <span>Trang {{ currentPage['collection'] }} / {{ totalPages['collection'] }}</span>
             <button (click)="loadCollectionResults(currentPage['collection']+ 1)"
                 [disabled]="currentPage['collection'] === totalPages['collection']">&gt;</button>
         </div>
     </div>
-    <div class="searchMovies__movies" *ngIf="selectedQuery ==='movies'">
-        <div *ngFor="let search of moviesFim" class="flex searchMovies__movies__item">
-            <div class="searchMovies__movies__item-img">
+    <div class="searchMovies__tv" *ngIf="selectedQuery ==='movies'">
+        <div *ngFor="let search of moviesFim" class="flex searchMovies__tv__item">
+            <div class="searchMovies__tv__item-img">
                 <img *ngIf="search.poster_path" [src]="'https://image.tmdb.org/t/p/w500'+search.poster_path" alt="">
                 <img *ngIf="!search.poster_path" src="assets/imgErr.PNG" alt="">
             </div>
-            <div class="searchMovies__movies__item-title">
+            <div class="searchMovies__tv__item-title">
                 <p class="text-xl font-semibold">{{search.original_title}}</p>
                 <p class="font-extralight">{{search.release_date | date}}</p>
                 <p class="mt-3">{{search.overview}}</p>
             </div>
         </div>
-        <div class="flex gap-5 justify-center">
+        <div *ngIf="totalResults['movie'] <=1">
+            <p>There are no movies that matched your query.</p>
+        </div>
+        <div class="flex gap-5 justify-center" *ngIf="totalResults['movie']>1">
             <button (click)="loadMovieResults(currentPage['movie'] - 1)" [disabled]="currentPage['movie']  === 1">
                 &lt;</button>
-            <span>Trang {{ currentPage['movie']  }} / {{ totalPages['movie']  }}</span>
-            <button (click)="loadMovieResults(currentPage['movie']  + 1)" [disabled]="currentPage['movie']  === totalPages['movie'] ">&gt;</button>
+            <span>Trang {{ currentPage['movie'] }} / {{ totalPages['movie'] }}</span>
+            <button (click)="loadMovieResults(currentPage['movie']  + 1)"
+                [disabled]="currentPage['movie']  === totalPages['movie'] ">&gt;</button>
         </div>
     </div>
 </div>

@@ -1,9 +1,22 @@
 @import "tailwindcss";
-.contenFim {
-    display: flex;
-    overflow-x: auto;
-    margin: 0 auto;
-    gap: 20px;
-    width: 70%;
-   height: 400px;
+
+.contentFim {
+    position: relative;
+    &__background {
+        width: 73%;
+        margin: 0 auto;
+        position: relative;
+        padding-top: 100px;
+    }
+    &__item {
+        display: flex;
+        overflow-x: auto;
+        margin: 0 auto;
+        gap: 20px;
+        width: 70%;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 15%;
+    }
 }

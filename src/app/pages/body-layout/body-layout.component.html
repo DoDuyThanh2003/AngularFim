@@ -58,9 +58,9 @@
             <a href="javascript:void(0)" (click)="selectFim('nowplaying')">In Theaters</a>
         </div>
     </div>
-    <div>
-        <app-popular-layout *ngIf="slecetedFim === 'popular'"></app-popular-layout>
-        <app-now-playing *ngIf="slecetedFim === 'nowplaying'"></app-now-playing>
+    <div [style.minHeight.px]="390">
+        <app-popular-layout *ngIf="slectedFim === 'popular'"></app-popular-layout>
+        <app-now-playing *ngIf="slectedFim === 'nowplaying'"></app-now-playing>
     </div>
     <div class="content__join relative">
         <div>

@@ -13,7 +13,7 @@ export class WeekFimLayoutComponent implements OnInit {
   constructor(private fimService: FimService) { }
   fims: any[] = []
   ngOnInit(): void {
-    this.fimService.getFimWeek().subscribe((res: any) => {
+    this.fimService.getFim('week').subscribe((res: any) => {
       this.fims = res.results
     })
   }

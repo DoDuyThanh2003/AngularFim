@@ -100,7 +100,7 @@ export class QueryFimComponen implements OnInit {
 
   loadCollectionResults(page: number = 1) {
     this.fimService.getSearchFim('collection', this.query, page).subscribe((res) => {
-      this.collectionFim['collection'] = res.results;
+      this.collectionFim = res.results;
       this.currentPage['collection'] = res.page;
       this.totalPages['collection'] = res.total_pages;
       this.totalResults['collection'] = res.total_results;
@@ -108,7 +108,7 @@ export class QueryFimComponen implements OnInit {
   }
   loadCompanyResults(page: number = 1) {
     this.fimService.getSearchFim('company', this.query, page).subscribe((res) => {
-      this.companyFim['company'] = res.results;
+      this.companyFim = res.results;
       this.currentPage['company'] = res.page;
       this.totalPages['company'] = res.total_pages;
       this.totalResults['company'] = res.total_results;
@@ -116,7 +116,7 @@ export class QueryFimComponen implements OnInit {
   }
   loadKeywordResults(page: number = 1) {
     this.fimService.getSearchFim('keyword', this.query, page).subscribe((res) => {
-      this.KeyWordFim['keyword'] = res.results;
+      this.KeyWordFim = res.results;
       this.currentPage['keyword'] = res.page;
       this.totalPages['keyword'] = res.total_pages;
       this.totalResults['keyword'] = res.total_results;

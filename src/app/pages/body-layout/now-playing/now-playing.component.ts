@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FimService } from '../../../../services/fim.service';
+import { FimItemComponent } from '../fim-item/fim-item.component';
 @Component({
   selector: 'app-now-playing',
-  imports: [CommonModule],
+  imports: [CommonModule, FimItemComponent],
   templateUrl: './now-playing.component.html',
   styleUrl: './now-playing.component.scss'
 })
 export class NowPlayingComponent implements OnInit {
-  constructor(private http: HttpClient,private fimService: FimService) { }
+  constructor(private fimService: FimService) { }
   fims: any[] = []
   ngOnInit(): void {
-    let key = '09227b47e837630a07422bf8e3ba6674'
-    this.fimService.getFimNowPlaying().subscribe(res => {
+    this.fimService.getFimPopular('now_playing').subscribe(res => {
       this.fims = res.results;
     })
+  }
+  handlerClick(id :number) {
+    console.log('Bạn vừa click vào phim có ID:', id);
   }
 }

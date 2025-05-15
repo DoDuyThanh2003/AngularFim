@@ -94,7 +94,6 @@
                         transition: color 0.3s;
                         position: relative;
                     }
-
                     .toggle-bg {
                         content: "";
                         position: absolute;
@@ -111,11 +110,9 @@
                     #today:checked ~ .toggle-bg {
                         transform: translateX(0%);
                     }
-
                     #week:checked ~ .toggle-bg {
                         transform: translateX(100%);
                     }
-
                     #today:checked ~ .label-today,
                     #week:checked ~ .label-week {
                         color: #aaf0d1;
@@ -125,7 +122,6 @@
             }
         }
     }
-
     .content__trailer {
         background-color: #032541;
         color: white;
@@ -147,7 +143,6 @@
                     font-weight: 500;
                 }
             }
-
             &__refesh {
                 a {
                     color: #01B4E4;
@@ -155,7 +150,6 @@
             }
         }
     }
-
     &__popular {
         width: 65%;
         margin: 0 auto;
@@ -181,7 +175,6 @@
             height: 276px;
             object-fit: cover;
         }
-
         &__body {
             position: absolute;
             top: 20px;

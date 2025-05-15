@@ -14,7 +14,7 @@ export class TodayFimLayoutComponent implements OnInit {
   constructor( private fimService: FimService) { }
   fims: any[] = []
   ngOnInit(): void {
-    this.fimService.getFim().subscribe((res: any) => {
+    this.fimService.getFim('day').subscribe((res: any) => {
       this.fims = res.results
     })
   } 
