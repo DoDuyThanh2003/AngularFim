@@ -10,7 +10,7 @@ import { FimItemComponent } from '../fim-item/fim-item.component';
   templateUrl: './today-fim-layout.component.html',
   styleUrl: './today-fim-layout.component.scss'
 })
-export class TodayFimLayoutComponent implements OnInit {
+export class TodayFimLayoutComponent implements OnInit{
   constructor( private fimService: FimService) { }
   fims: any[] = []
   ngOnInit(): void {

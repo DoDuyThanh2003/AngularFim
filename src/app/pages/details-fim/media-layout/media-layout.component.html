@@ -19,8 +19,8 @@
         <div [style.minHeight.px]="350">
             <div *ngIf="selectedTab === 'popular'">
                 <div class="flex">
-                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="50%">
-                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.poster_path" alt="" width="20%">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popular.backdrop_path" alt="" width="50%">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popular.poster_path" alt="" width="20%">
                 </div>
             </div>
             <div *ngIf="selectedTab === 'video'">
@@ -39,8 +39,8 @@
             </div>
             <div *ngIf="selectedTab === 'backdrop'">
                 <div class="flex">
-                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="45%">
-                    <img [src]="'https://image.tmdb.org/t/p/w500'+popula.backdrop_path" alt="" width="45%">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popular.backdrop_path" alt="" width="45%">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+popular.backdrop_path" alt="" width="45%">
                 </div>
             </div>
             <div *ngIf="selectedTab === 'poster'" class="poster flex">

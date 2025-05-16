@@ -13,13 +13,13 @@ import { FimService } from '../../../services/fim.service';
 })
 export class QueryFimComponen implements OnInit {
   query: string = '';
-  moviesFim: any = {}
-  tvFim: any = {}
-  peopleFim: any = {}
-  companyFim: any = {}
-  KeyWordFim: any = {}
-  netWorkFim: any = {}
-  collectionFim: any = {}
+  moviesFim: any = []
+  tvFim: any = []
+  peopleFim: any = []
+  companyFim: any = []
+  KeyWordFim: any = []
+  netWorkFim: any = []
+  collectionFim: any = []
   selectedQuery: string = 'movies'
   currentPage: { [key: string]: number } = {};
   totalPages: { [key: string]: number } = {};

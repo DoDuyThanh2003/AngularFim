@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderLayoutComponent } from '../header-layout/header-layout.component';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { FooterLayoutComponent } from '../body-layout/footer-layout/footer-layout.component';
@@ -14,14 +13,13 @@ import { FimService } from '../../../services/fim.service';
   styleUrl: './details-fim.component.scss'
 })
 export class DetailsFimComponent implements OnInit {
-  constructor(private http: HttpClient, private routes:Router, private route: ActivatedRoute, private fimService:FimService  ) {}
+  constructor( private routes:Router, private route: ActivatedRoute, private fimService:FimService  ) {}
   DetailsFim: any = {}
   Compose: any[] = []
   trailerFim: any = {}
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     if(!id) return;
-    let key = '09227b47e837630a07422bf8e3ba6674'
     this.fimService.getDetailFim(id).subscribe(res => {
       this.DetailsFim = res
     })

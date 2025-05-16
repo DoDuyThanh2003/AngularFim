@@ -1,6 +1,24 @@
-@mixin columnStyle {
-        width: 80%;
+@mixin columnStyle($gap: 20px) {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+         gap: $gap;
+}
+
+@mixin mediaStyle {
+        position: absolute;
+        border-radius: 10px;
+        padding: 5px 0;
+        z-index: 10;
+        background-color: white;
+}
+
+@mixin padStyle {
+        display: block;
+        padding: 5px 20px 5px 10px;
+}
+
+@mixin centerStyle {
+        justify-content: center;
+        display: flex;
+        align-items: center;
 }

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../../../services/fim.mixin.scss";
+
 .searchMovies {
     width: 75%;
     margin: 0 auto;
@@ -11,10 +12,11 @@
         border: 1px solid #ccc;
         height: fit-content;
         width: 20%;
-        display: flex;
-        flex-direction: column;
+        @include columnStyle(5px);
+
         &__title {
             color: white;
+
             p {
                 background-color: rgb(61, 176, 243);
                 font-size: 19px;
@@ -24,27 +26,34 @@
                 font-weight: 500;
             }
         }
+
         &__body {
             padding: 5px 0;
-            a{
+            a {
                 display: block;
                 padding: 7px 20px;
 
             }
+
             div:hover {
                 background-color: #f7f1f1;
             }
+
             div.active {
                 background-color: #ccc;
             }
+
             p {
-                 padding: 7px 20px;
+                padding: 7px 20px;
             }
 
         }
     }
+
     &__people {
-        @include columnStyle();
+        width: 80%;
+        @include columnStyle(10px);
+
         &__item {
             gap: 20px;
             &-img {
@@ -57,8 +66,7 @@
             }
 
             &-title {
-                display: flex;
-                flex-direction: column;
+                @include columnStyle(5px);
                 justify-content: center;
 
                 span {
@@ -74,7 +82,9 @@
     }
 
     &__tv {
-      @include columnStyle();
+        width: 80%;
+        @include columnStyle(20px);
+
         &__item {
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -92,20 +102,19 @@
             }
 
             &-title {
-                display: flex;
-                flex-direction: column;
+                @include columnStyle(0);
                 justify-content: center;
             }
         }
     }
+
     &__company {
-    @include columnStyle();
+        width: 80%;
+        @include columnStyle(0);
+
         &__item {
-            display: flex;
-            flex-direction: column;
+           @include columnStyle(0);
         }
     }
-    &____keyword {
-         @include columnStyle();
-    }
+
 }

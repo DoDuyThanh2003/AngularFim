@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../../../services/fim.mixin.scss";
 
 * {
     padding: 0;
@@ -10,24 +11,23 @@
 
     &__content {
         margin: 10px 0;
+
         .shortCut {
             position: relative;
+
             &__menuOver {
-                position: absolute;
+                @include mediaStyle();
                 top: 100%;
                 left: 0;
-                z-index: 10;
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
                 font-size: 14px;
                 border: 1px solid #ccc;
-                padding: 5px 0;
+
                 &__body {
                     a {
                         width: auto;
                         display: block;
                         padding: 5px 40px 5px 20px;
-                        white-space: nowrap; 
+                        white-space: nowrap;
                     }
 
                     a:hover {
@@ -39,8 +39,7 @@
                     margin-top: 20px;
 
                     a {
-                        display: block;
-                        padding: 5px 20px 5px 10px;
+                        @include padStyle();
                     }
 
                     a:hover {
@@ -48,7 +47,6 @@
                     }
                 }
             }
-
         }
 
         .shortCut:hover .shortCut__menuOver {
@@ -57,16 +55,14 @@
 
         .shortMedia {
             position: relative;
+
             &__content {
-                position: absolute;
+                @include mediaStyle();
                 top: 100%;
                 left: 0;
-                z-index: 10;
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
                 font-size: 14px;
                 border: 1px solid #ccc;
-                padding: 5px 0;
+
                 ul {
                     width: 150px;
 
@@ -90,14 +86,11 @@
         }
 
         .shortMedia__content__video-item {
-            position: absolute;
+            @include mediaStyle();
             top: 0;
             left: 100%;
             white-space: nowrap;
-            background-color: white;
-            z-index: 10;
-             padding: 5px 0;
-             border-radius: 10px;
+
             p {
                 padding: 5px 20px 5px 10px;
             }
@@ -113,23 +106,21 @@
 
         .shortFamdom {
             position: relative;
+
             p {
-                white-space: nowrap; 
+                white-space: nowrap;
             }
+
             &__content {
-                position: absolute;
+                @include mediaStyle();
                 top: 100%;
                 left: 0;
-                z-index: 10;
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
                 font-size: 14px;
                 border: 1px solid #ccc;
-                padding: 5px 0;
+
                 &__body {
                     li {
-                        display: block;
-                        padding: 5px 20px 5px 10px;
+                        @include padStyle();
                     }
 
                     li:hover {
@@ -140,18 +131,14 @@
                         position: relative;
 
                         div {
-                            position: absolute;
+                            @include mediaStyle();
                             top: 0;
                             left: 100%;
                             white-space: nowrap;
-                            background-color: white;
-                            z-index: 10;
                             border: 1px solid #ccc;
-                            border-radius: 5px;
 
                             a {
-                                display: block;
-                                padding: 5px 20px 5px 10px;
+                                @include padStyle();
                             }
 
                             a:hover {
@@ -173,20 +160,18 @@
 
         .shortShare {
             position: relative;
+
             &__body {
-                position: absolute;
+                @include mediaStyle();
                 top: 100%;
                 left: 0;
-                z-index: 10;
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
                 font-size: 14px;
                 border: 1px solid #ccc;
-                padding: 5px 0;
+
                 a {
                     display: block;
                     padding: 5px 20px 5px 10px;
-                    white-space: nowrap; 
+                    white-space: nowrap;
                 }
 
                 a:hover {
@@ -228,15 +213,11 @@
             position: relative;
             z-index: 2;
             width: 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            @include columnStyle();
 
             .scoreUser {
                 width: 50%;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
+                @include columnStyle(10px);
 
                 &__title {
                     span {
@@ -246,22 +227,16 @@
                         background-color: #032541;
                         border-radius: 60px;
                         border: 3px solid #4ef548;
-                        justify-content: center;
-                        display: flex;
-                        align-items: center;
+                        @include centerStyle();
                     }
 
                     strong {
                         font-weight: 700;
-                        justify-content: center;
-                        display: flex;
-                        align-items: center;
+                        @include centerStyle();
                     }
 
                     div {
-                        justify-content: center;
-                        display: flex;
-                        align-items: center;
+                        @include centerStyle();
 
                         p {
                             background-color: #032541;
@@ -282,9 +257,7 @@
                     }
 
                     &__trailer {
-                        justify-content: center;
-                        display: flex;
-                        align-items: center;
+                        @include centerStyle();
                     }
                 }
             }

@@ -1,21 +1,21 @@
 <app-header-layout></app-header-layout>
 <div class="container">
     <ul class="flex gap-10 justify-center container__content ">
-            <li class="shortCut">
-                <p>Overview <i class="fa-solid fa-arrow-down"></i></p>
-                <div class="hidden shortCut__menuOver">
-                    <div class="shortCut__menuOver__body">
-                        <a href="">Main</a>
-                        <a href="">Alternative Titles</a>
-                        <a href="">Cast & Crew</a>
-                        <a href="">Release Dates</a>
-                        <a href="">Translations</a>
-                    </div>
-                    <div class="shortCut__menuOver__footer">
-                        <a href="">Changes</a>
-                    </div>
+        <li class="shortCut">
+            <p>Overview <i class="fa-solid fa-arrow-down"></i></p>
+            <div class="hidden shortCut__menuOver">
+                <div class="shortCut__menuOver__body">
+                    <a href="">Main</a>
+                    <a href="">Alternative Titles</a>
+                    <a href="">Cast & Crew</a>
+                    <a href="">Release Dates</a>
+                    <a href="">Translations</a>
                 </div>
-            </li>
+                <div class="shortCut__menuOver__footer">
+                    <a href="">Changes</a>
+                </div>
+            </div>
+        </li>
         <li class="shortMedia">
             <p>Media <i class="fa-solid fa-arrow-down"></i></p>
             <div class="hidden shortMedia__content">
@@ -82,7 +82,7 @@
                 <div class="flex gap-5">
                     <span class="">PG-13</span>
                     <p>{{formatDate(DetailsFim.release_date)}} (VN)</p>
-                    <p  *ngFor="let genre of DetailsFim.genres">{{ genre.name}}</p>
+                    <p *ngFor="let genre of DetailsFim.genres">{{ genre.name}}</p>
                 </div>
             </div>
             <div class="detailsFim__content__body__user scoreUser">
@@ -93,7 +93,7 @@
                         <p>What's your Vibe?</p>
                     </div>
                 </div>
-                <div class="scoreUser__content flex gap-10" >
+                <div class="scoreUser__content flex gap-10">
                     <div class="scoreUser__content__lobby flex gap-10">
                         <p class="scoreUser__content__lobby-item"><i class="fa-solid fa-list"></i></p>
                         <p class="scoreUser__content__lobby-item"><i class="fa-solid fa-heart"></i></p>

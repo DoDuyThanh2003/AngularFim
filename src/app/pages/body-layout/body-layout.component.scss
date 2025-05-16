@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "../../../services/fim.mixin.scss";
 .content {
     &__logged {
         background-color: deepskyblue;
@@ -13,8 +13,7 @@
 
     &__welcome {
         position: relative;
-        display: flex;
-        justify-content: center;
+        @include centerStyle();
 
         img {
             width: 100%;
@@ -27,9 +26,7 @@
             position: absolute;
             top: 20%;
             padding: 30px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 45px;
+            @include columnStyle(45px);
 
             &-search {
                 input {
@@ -130,9 +127,7 @@
         .container {
             width: 65%;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+           @include columnStyle();
 
             &__body {
                 &__task {

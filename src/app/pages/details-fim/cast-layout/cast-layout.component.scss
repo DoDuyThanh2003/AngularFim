@@ -1,16 +1,14 @@
 @import "tailwindcss";
-
+@import "../../../../services/fim.mixin.scss";
 .TopCast {
     width: 80%;
     padding: 30px 40px;
     margin: 0 auto;
-
+    display: flex;
+    gap: 30px;
     &__left {
         width: 65%;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
+        @include columnStyle(10px);
         &__content {
             overflow-x: auto;
             white-space: nowrap;
@@ -81,10 +79,8 @@
     }
 
     &__right {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 60px;
+        @include columnStyle(10px);
+        margin-top: 10%;
         width: 100%;
 
         &__keyword {
@@ -132,9 +128,7 @@
         &__User {
             width: 50%;
             &-login {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
+                @include columnStyle();
                 button {
                     background-color: #000;
                     color: white;

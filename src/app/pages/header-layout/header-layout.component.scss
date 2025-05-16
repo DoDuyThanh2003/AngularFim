@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "../../../services/fim.mixin.scss";
 .header {
     background-color: #032541;
     width: 100%;
@@ -14,15 +14,12 @@
 
         &__left {
             &-logo {
-                 display: flex;
-                 justify-content: center;
-                 align-items: center;
+                 @include centerStyle();
             }
             .menu {
                 ul {
                     .menu_item {
                         position: relative;
-
                         .menu_item_movies {
                             display: none;
                             position: absolute;
@@ -38,23 +35,19 @@
                                 display: block;
                                 padding: 2px;
                             }
-
                             a:hover {
                                 background-color: #ccc;
                             }
                         }
                     }
-
                     .menu_item:hover .menu_item_movies {
                         display: block;
                     }
                 }
             }
         }
-
         &__right {
-            display: flex;
-            justify-content: center;
+            @include centerStyle();
         }
     }
 

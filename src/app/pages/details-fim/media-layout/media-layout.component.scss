@@ -1,12 +1,10 @@
 @import "tailwindcss";
-
+@import "../../../../services/fim.mixin.scss";
 .selectMedia {
     padding: 10px 0;
 
     &__title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include centerStyle();
     }
 
     &__choose {

@@ -98,8 +98,8 @@
                 [disabled]="currentPage['company'] === totalPages['company']">&gt;</button>
         </div>
     </div>
-    <div class="searchMovies__keyword" *ngIf="selectedQuery ==='keyword'">
-        <div *ngFor="let keyword of KeyWordFim " class="flex searchMovies__keyword__item">
+    <div class="searchMovies__company w-full" *ngIf="selectedQuery ==='keyword'">
+        <div *ngFor="let keyword of KeyWordFim " class="flex">
             <div>
                 <hr class="border-t-gray-300">
             </div>
